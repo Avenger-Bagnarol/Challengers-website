@@ -1,0 +1,182 @@
+.ranking-page {
+  --rank-black: #080809;
+  --rank-charcoal: #242426;
+  --rank-grey: #66666a;
+  --rank-silver: #d9d9df;
+  --rank-light: #f0f0f3;
+  --rank-gold: #ebc95b;
+  --rank-line: #d9d9df36;
+  --ranking-avatar-size: 100px;
+  color: var(--rank-light);
+  background:
+    linear-gradient(90deg, #080809b3, #08080926 54%, #08080955),
+    url("../assets/exciton_knight_by_nhociory.png") 64% -48px / auto clamp(1050px, 108vw, 1650px) no-repeat,
+    radial-gradient(ellipse at 64% 38%, var(--rank-grey), var(--rank-charcoal) 65%, var(--rank-black));
+  animation: none;
+}
+
+.ranking-page .eyebrow {
+  color: var(--rank-gold);
+}
+
+.ranking-page .lead,
+.ranking-page .content-note {
+  color: var(--rank-silver);
+}
+
+.ranking-page .panel-heading {
+  border-bottom: 0;
+}
+
+.ranking-backdrop {
+  box-shadow: 0 0 0 1px var(--rank-line), 0 16px 36px #0008;
+}
+
+.ranking-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ranking-options button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--rank-line);
+  background: var(--rank-charcoal);
+  color: var(--rank-silver);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.ranking-options button:hover {
+  border-color: var(--rank-silver);
+  color: var(--rank-light);
+}
+
+.ranking-options button[aria-pressed="true"] {
+  background: #30291b;
+  color: var(--rank-gold);
+  border-color: var(--rank-gold);
+}
+
+.ranking-options button:focus-visible {
+  outline-color: var(--rank-gold);
+}
+
+.ranking-table {
+  min-width: 0;
+}
+
+.ranking-table th,
+.ranking-table td {
+  width: auto;
+  padding: 4px 12px;
+  border: 0;
+  vertical-align: middle;
+}
+
+.ranking-table thead th {
+  padding-block: 14px;
+  background: #141416b8;
+  color: var(--rank-silver);
+  box-shadow: inset 0 -1px var(--rank-line);
+}
+
+.ranking-table thead [aria-sort] {
+  color: var(--rank-gold);
+  box-shadow: inset 0 -2px var(--rank-gold);
+}
+
+.ranking-table tbody {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-shadow: 0 2px 5px #000, 0 0 12px #000a;
+}
+
+.ranking-table tbody tr {
+  background: #10101282;
+}
+
+.ranking-table tbody tr:hover {
+  background: #101012a6;
+}
+
+.ranking-table tbody tr + tr > :not(:first-child) {
+  box-shadow: inset 0 1px var(--rank-line);
+}
+
+.ranking-table tbody td:first-child {
+  width: var(--ranking-avatar-size);
+  padding: 0;
+}
+
+.ranking-table tbody th {
+  width: 60%;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: anywhere;
+}
+
+.ranking-table tr > :nth-child(2),
+.ranking-table tr > :nth-child(n+4) {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-table tbody tr:nth-child(1) td:nth-child(2) {
+  color: var(--rank-gold);
+}
+
+.ranking-table tbody tr:nth-child(2) td:nth-child(2) {
+  color: var(--rank-silver);
+}
+
+.ranking-table tbody tr:nth-child(3) td:nth-child(2) {
+  color: #d8aa81;
+}
+
+.ranking-avatar {
+  display: grid;
+  place-items: center;
+  width: var(--ranking-avatar-size);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: radial-gradient(ellipse at top right, var(--rank-grey), var(--rank-charcoal) 80%);
+  font-size: clamp(16px, 2vw, 24px);
+}
+
+.ranking-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ranking-avatar img[hidden] {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .ranking-page {
+    --ranking-avatar-size: 64px;
+    background-position: center, 50% 20px, center;
+    background-size: auto, auto clamp(740px, 132vw, 1050px), auto;
+  }
+
+  .ranking-table th,
+  .ranking-table td {
+    padding-inline: 5px;
+  }
+
+  .ranking-table tbody {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .ranking-table tbody th {
+    width: auto;
+  }
+}
