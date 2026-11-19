@@ -1,0 +1,114 @@
+.events-page {
+  --rank-charcoal: #10283d;
+  --rank-silver: #d0eaf3;
+  --rank-light: #effaff;
+  --rank-gold: #8aeee9;
+  --rank-line: #6ac3f653;
+  --events-art-width: min(86vw, 960px);
+  --events-art-x: 56%;
+  --events-art-y: 20px;
+  --events-table-header: #091a2db8;
+  --events-table-row: #07162482;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-height: calc(var(--events-art-y) + var(--events-art-width) * 784 / 922 + 24px);
+  color: var(--rank-light);
+  background: radial-gradient(ellipse at 58% 38%, #173b52, #091b30 62%, #060f1f);
+  animation: none;
+}
+
+.events-art {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: var(--events-art-y);
+  left: var(--events-art-x);
+  width: var(--events-art-width);
+  max-width: none;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.events-page .eyebrow {
+  color: var(--rank-gold);
+}
+
+.events-options {
+  justify-content: flex-end;
+  margin-block: 12px 18px;
+}
+
+.events-options button[aria-pressed="true"] {
+  background: #123b48;
+}
+
+.events-backdrop {
+  border-radius: 12px;
+}
+
+.events-backdrop:focus-visible {
+  outline: 2px solid var(--rank-gold);
+  outline-offset: 4px;
+}
+
+.events-table {
+  min-width: 580px;
+}
+
+.events-table th,
+.events-table td {
+  width: auto;
+  padding: 16px clamp(14px, 2vw, 28px);
+  border: 0;
+  text-align: left;
+}
+
+.events-table thead th {
+  color: var(--rank-silver);
+  background: var(--events-table-header);
+  box-shadow: inset 0 -1px var(--rank-line);
+}
+
+.events-table tbody {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-shadow: 0 2px 5px #000, 0 0 12px #000a;
+}
+
+.events-table tbody tr {
+  background: var(--events-table-row);
+}
+
+.events-table tbody tr + tr {
+  border-top: 1px solid var(--rank-line);
+}
+
+.events-table tbody th {
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.events-table a {
+  color: var(--rank-gold);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.events-table a:hover {
+  color: var(--rank-light);
+}
+
+.events-table a:focus-visible {
+  outline: 2px solid var(--rank-gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .events-page {
+    --events-art-width: min(100vw, 650px);
+    --events-art-x: 50%;
+    --events-art-y: 115px;
+  }
+}

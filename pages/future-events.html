@@ -8,7 +8,10 @@
   <title>Future Events | HAT Challengers</title>
   <link rel="icon" href="../assets/hat-challengers-favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/ranking.css">
+  <link rel="stylesheet" href="../css/events.css">
   <script src="../js/main.js" defer></script>
+  <script src="../js/events.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,10 +22,34 @@
       <nav id="navigation" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../pages/future-events.html" aria-current="page">Future Events</a><a href="../pages/ranking.html">Ranking</a><a href="../pages/team.html">Team</a><a href="../pages/collab.html">Collab with Us</a></nav>
     </div>
   </header>
-  <main id="main"><section class="container page-heading"><p class="eyebrow">GATHER. PLAY. COMPETE.</p><h1>Future Events</h1><p class="lead">Your next challenge starts here. Discover upcoming HAT tournaments and community events.</p></section><section class="container content-section" aria-label="Upcoming events"><div class="panel-heading"><h2>On the horizon</h2><span class="status">Announcements coming soon</span></div><div class="empty-state"><span class="empty-symbol" aria-hidden="true">✧</span><p class="eyebrow">THE NEXT CHAPTER</p><h2>The table is being set.</h2><p>New events will appear here once announced. Check back for dates, locations, and everything you need to join the action.</p></div><!-- Add event cards to this grid when details are confirmed.
-Each card should include: event name, <time datetime="YYYY-MM-DD">date</time>,
-location or online platform, description, and a link to confirmed details. -->
-<div class="event-grid"></div></section></main>
+  <main id="main" class="events-page">
+    <img class="events-art" src="../assets/honor_arc.png" alt="" width="922" height="784">
+    <section class="container page-heading">
+      <p class="eyebrow">GATHER. PLAY. COMPETE.</p>
+      <h1>Future Events</h1>
+    </section>
+    <section class="container content-section" aria-label="Upcoming events">
+      <div class="ranking-options events-options" role="group" aria-label="Event category">
+        <button type="button" data-category="major" aria-controls="events-table" aria-pressed="true">Major Events</button>
+        <button type="button" data-category="local" aria-controls="events-table" aria-pressed="false">Locals</button>
+      </div>
+      <div class="table-scroll ranking-backdrop events-backdrop" tabindex="0" role="region" aria-label="Upcoming events table">
+        <table class="events-table" id="events-table">
+          <caption class="sr-only">Upcoming HAT Challengers events</caption>
+          <thead>
+            <tr>
+              <th scope="col">Event</th>
+              <th scope="col">Date</th>
+              <th scope="col">Venue</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <noscript><p class="content-note">Enable JavaScript to view upcoming events.</p></noscript>
+    </section>
+  </main>
   <footer class="site-footer"><div class="container footer-inner"><a class="footer-brand" href="../index.html">HAT CHALLENGERS<span>A format. A community. A new challenge.</span></a><p>Dedicated to the Yu-Gi-Oh! HAT format.<br><span>Community-run. Made for the love of the game.</span></p><a href="../pages/collab.html">Let’s build something together <span aria-hidden="true">↗</span></a></div><div class="container footer-note">An independent community project. Yu-Gi-Oh! and its related marks belong to their respective owners.</div></footer>
 </body>
 </html>

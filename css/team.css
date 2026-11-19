@@ -1,0 +1,162 @@
+.team-page {
+  --team-banner-height: clamp(150px, 23vw, 320px);
+  padding-block: clamp(20px, 3vw, 40px) clamp(55px, 7vw, 85px);
+  background: linear-gradient(180deg, #1f1515, #231315 36%, #14151d 61%, #101e29 86%, #10191e);
+  animation: none;
+}
+
+.team-banner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: var(--team-banner-height);
+  object-fit: cover;
+  object-position: center 55%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.team-heading {
+  padding-block: clamp(34px, 5vw, 64px) 20px;
+}
+
+.team-heading .eyebrow {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.team-composition {
+  --team-banner-overlap: clamp(24px, 4vw, 58px);
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(90px, 10vw, 148px);
+}
+
+.team-artwork {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  inset-block-start: calc(-1 * var(--team-banner-overlap));
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.team-art {
+  position: absolute;
+  width: var(--team-art-size);
+  max-width: none;
+  height: auto;
+  filter: drop-shadow(0 0 28px var(--team-art-glow));
+}
+
+.team-art--fire {
+  --team-art-size: min(58%, 720px);
+  --team-art-x: 0%;
+  --team-art-y: 0%;
+  --team-art-glow: #b8452452;
+  inset-inline-start: var(--team-art-x);
+  inset-block-start: var(--team-art-y);
+}
+
+.team-art--ice {
+  --team-art-size: min(56%, 695px);
+  --team-art-x: 0%;
+  --team-art-y: 0%;
+  --team-art-glow: #377d9952;
+  inset-inline-end: var(--team-art-x);
+  inset-block-end: var(--team-art-y);
+}
+
+.team-profiles {
+  --team-card-gap: clamp(20px, 4vw, 56px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: clamp(44px, 6vw, 84px) var(--team-card-gap);
+  width: min(100%, 1100px);
+  margin-inline: auto;
+}
+
+.team-profile {
+  --team-accent: #e1d4d3;
+  --team-panel: #18151cd9;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 30px);
+  min-height: clamp(194px, 20vw, 250px);
+  padding: clamp(18px, 2.5vw, 32px);
+  border: 1px solid color-mix(in srgb, var(--team-accent) 30%, transparent);
+  border-radius: 14px;
+  background: var(--team-panel);
+  box-shadow: 0 16px 36px #0006;
+  overflow-wrap: anywhere;
+}
+
+.team-profile:first-child {
+  --team-accent: #ffb182;
+  --team-panel: #231316d6;
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - var(--team-card-gap)) / 2);
+}
+
+.team-profile:nth-child(n + 4) {
+  --team-accent: #a9e6ff;
+  --team-panel: #101e2ad6;
+}
+
+.team-portrait {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.team-profile h2 {
+  font-size: clamp(1.57rem, 2.7vw, 2.4rem);
+}
+
+.team-profile p {
+  margin-top: 8px;
+  color: var(--team-accent);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.team-page .callout {
+  margin-top: clamp(40px, 6vw, 80px);
+}
+
+.team-page .callout h2 {
+  font-size: 1.6rem;
+}
+
+@media (max-width: 760px) {
+  .team-composition {
+    padding-block: clamp(135px, 29vw, 205px) clamp(145px, 32vw, 225px);
+  }
+
+  .team-art--fire {
+    --team-art-size: min(96%, 470px);
+  }
+
+  .team-art--ice {
+    --team-art-size: min(96%, 460px);
+  }
+
+  .team-profiles {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    max-width: 530px;
+  }
+
+  .team-profile {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    min-height: 160px;
+  }
+
+  .team-profile:first-child {
+    width: 100%;
+  }
+}
