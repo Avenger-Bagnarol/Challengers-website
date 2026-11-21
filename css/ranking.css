@@ -9,7 +9,7 @@
   color: var(--rank-light);
   background:
     linear-gradient(90deg, #080809b3, #08080926 54%, #08080955),
-    url("../assets/exciton_knight_by_nhociory.png") 64% 24px / auto clamp(1050px, 108vw, 1650px) no-repeat,
+    url("../assets/exciton_knight.png") 64% 24px / auto clamp(1050px, 108vw, 1650px) no-repeat,
     radial-gradient(ellipse at 64% 38%, var(--rank-grey), var(--rank-charcoal) 65%, var(--rank-black));
   animation: none;
 }
