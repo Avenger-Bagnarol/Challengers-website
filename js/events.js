@@ -1,43 +1,50 @@
-const events = [
-  {
-    name: 'HAT Challengers',
-    date: '2026-12-12',
-    venue: 'La Casa dei Giochi',
-    address: "Via Sant'Uguzzone 8, Milano",
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Via+Sant%27Uguzzone+8%2C+Milano%2C+Italy',
-    category: 'major'
-  },
-  {
-    name: 'HAT Local',
-    date: '2026-11-24',
-    venue: 'Jamaican Card Store',
-    address: 'Via Filippo Parlatore 24/A, Palermo',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Via+Filippo+Parlatore+24%2FA%2C+Palermo%2C+Italy',
-    category: 'local'
-  }
-];
+import { localEvents } from '../data/local_events.js';
+import { majorEvents } from '../data/major_events.js';
 
+const eventsByCategory = { major: majorEvents, local: localEvents };
 const eventButtons = document.querySelectorAll('.events-options button');
 const eventRows = document.querySelector('#events-table tbody');
-const eventDateFormat = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
+const eventMonthOptions = {
   month: 'long',
   year: 'numeric',
   timeZone: 'UTC'
-});
+};
+const eventMonthFormat = new Intl.DateTimeFormat('en-GB', eventMonthOptions);
+const eventDateFormat = new Intl.DateTimeFormat('en-GB', { ...eventMonthOptions, day: 'numeric' });
 
 function renderEvents(category) {
-  const rows = events.filter(event => event.category === category).map(event => {
+  const rows = eventsByCategory[category].map(event => {
     const row = document.createElement('tr');
     const name = document.createElement('th');
     name.scope = 'row';
-    name.textContent = event.name;
+    const eventlink = category === 'major' ? event.eventlink?.trim() : '';
+    if (eventlink) {
+      const link = document.createElement('a');
+      link.href = eventlink;
+      link.textContent = event.name;
+      name.append(link);
+    } else {
+      name.textContent = event.name;
+    }
     row.append(name);
 
     const date = document.createElement('time');
-    date.dateTime = event.date;
-    date.textContent = eventDateFormat.format(new Date(event.date));
+    date.dateTime = event.date.replace(/^(\d{2})-(\d{2})-(\d{4})$/, '$3-$2-$1');
+    date.dateTime = date.dateTime.replace(/^(\d{2})-(\d{4})$/, '$2-$1');
+    const format = /^\d{4}-\d{2}$/.test(date.dateTime) ? eventMonthFormat : eventDateFormat;
+    date.textContent = format.format(new Date(date.dateTime));
     row.insertCell().append(date);
+
+    const timeCell = row.insertCell();
+    if (event.time) {
+      const time = document.createElement('time');
+      time.dateTime = event.time.replace('.', ':');
+      time.textContent = time.dateTime;
+      timeCell.append(time);
+    } else {
+      timeCell.textContent = '—';
+    }
+
     row.insertCell().textContent = event.venue;
 
     const address = document.createElement('a');
