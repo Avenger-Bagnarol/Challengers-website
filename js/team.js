@@ -1,8 +1,8 @@
 const teamMembers = [
   { name: 'Emilian Vama', role: 'Frontman and Head Judge', portrait: 'emilian.webp' },
-  { name: 'Mirko Bagnarol', role: 'Broadcasting team', portrait: 'mirko.webp' },
-  { name: 'Leonardo Valvassori', role: 'Broadcasting team', portrait: 'leo.webp' },
-  { name: 'Valerio Costamante', role: 'Social Media manager', portrait: 'vale.webp' },
+  { name: 'Mirko Bagnarol', role: 'Broadcasting Team', portrait: 'mirko.webp' },
+  { name: 'Leonardo Vavassori', role: 'Broadcasting Team', portrait: 'leo.webp' },
+  { name: 'Valerio Costamante', role: 'Social Media Manager', portrait: 'vale.webp' },
   { name: "Massimo dell'Ernia", role: 'Advisor', portrait: 'max.webp' }
 ];
 
