@@ -5,29 +5,6 @@ const buttons = document.querySelectorAll('.ranking-options button');
 const pointsHeaders = table.querySelectorAll('[data-points]');
 const nameOrder = new Intl.Collator('en', { sensitivity: 'accent' });
 
-function createAvatar({ name, nickname }) {
-  const avatar = document.createElement('span');
-  avatar.className = 'ranking-avatar';
-  avatar.setAttribute('aria-hidden', 'true');
-
-  const initials = document.createElement('span');
-  initials.textContent = name.trim().split(/\s+/).slice(0, 2)
-    .map(part => Array.from(part)[0]).join('').toUpperCase();
-
-  const image = document.createElement('img');
-  image.alt = '';
-  image.hidden = true;
-  image.addEventListener('load', () => {
-    initials.hidden = true;
-    image.hidden = false;
-  }, { once: true });
-  image.addEventListener('error', () => image.remove(), { once: true });
-  image.src = new URL(`../assets/ranking/avatar_${encodeURIComponent(nickname)}.webp`, import.meta.url).href;
-
-  avatar.append(initials, image);
-  return avatar;
-}
-
 function renderRanking(pointsKey) {
   const sortedPlayers = [...players].sort((first, second) =>
     second[pointsKey] - first[pointsKey] || nameOrder.compare(first.name, second.name)
@@ -35,7 +12,6 @@ function renderRanking(pointsKey) {
 
   const rows = sortedPlayers.map((player, index) => {
     const row = document.createElement('tr');
-    row.insertCell().append(createAvatar(player));
     row.insertCell().textContent = index + 1;
     const name = document.createElement('th');
     name.scope = 'row';

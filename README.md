@@ -23,7 +23,7 @@ Then visit http://localhost:8000. Stop the server with Ctrl+C.
 - `pages/collab.html` — collaboration information and contact placeholder
 - `css/styles.css` — shared palette, typography, components, and responsive layouts
 - `js/main.js` — progressive enhancement for the mobile navigation
-- `assets/logo_challengers.jpeg` — original logo, unchanged
+- `assets/logo_challengers.png` — circular HAT Challengers logo
 
 All pages use ordinary relative links and share the same CSS and JavaScript. Header and footer markup is deliberately present in every HTML document so the full site also works without JavaScript and when opened directly from disk. When changing navigation or footer copy, update all five documents together.
 

@@ -6,7 +6,6 @@
   --rank-light: #f0f0f3;
   --rank-gold: #ebc95b;
   --rank-line: #d9d9df36;
-  --ranking-avatar-size: 100px;
   color: var(--rank-light);
   background:
     linear-gradient(90deg, #080809b3, #08080926 54%, #08080955),
@@ -71,13 +70,12 @@
 .ranking-table th,
 .ranking-table td {
   width: auto;
-  padding: 4px 12px;
+  padding: 14px 12px;
   border: 0;
   vertical-align: middle;
 }
 
 .ranking-table thead th {
-  padding-block: 14px;
   background: #141416b8;
   color: var(--rank-silver);
   box-shadow: inset 0 -1px var(--rank-line);
@@ -103,17 +101,19 @@
   background: #101012a6;
 }
 
-.ranking-table tbody tr + tr > :not(:first-child) {
+.ranking-table tbody tr + tr > * {
   box-shadow: inset 0 1px var(--rank-line);
 }
 
-.ranking-table tbody td:first-child {
-  width: var(--ranking-avatar-size);
-  padding: 0;
+.ranking-table thead th:first-child {
+  width: 12%;
+}
+
+.ranking-table thead th[data-points] {
+  width: 22%;
 }
 
 .ranking-table tbody th {
-  width: 60%;
   background: none;
   color: inherit;
   font-size: inherit;
@@ -121,47 +121,26 @@
   overflow-wrap: anywhere;
 }
 
-.ranking-table tr > :nth-child(2),
-.ranking-table tr > :nth-child(n+4) {
+.ranking-table tr > :first-child,
+.ranking-table tr > :nth-child(n+3) {
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
-.ranking-table tbody tr:nth-child(1) td:nth-child(2) {
+.ranking-table tbody tr:nth-child(1) td:first-child {
   color: var(--rank-gold);
 }
 
-.ranking-table tbody tr:nth-child(2) td:nth-child(2) {
+.ranking-table tbody tr:nth-child(2) td:first-child {
   color: var(--rank-silver);
 }
 
-.ranking-table tbody tr:nth-child(3) td:nth-child(2) {
+.ranking-table tbody tr:nth-child(3) td:first-child {
   color: #d8aa81;
-}
-
-.ranking-avatar {
-  display: grid;
-  place-items: center;
-  width: var(--ranking-avatar-size);
-  aspect-ratio: 1;
-  overflow: hidden;
-  background: radial-gradient(ellipse at top right, var(--rank-grey), var(--rank-charcoal) 80%);
-  font-size: clamp(16px, 2vw, 24px);
-}
-
-.ranking-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.ranking-avatar img[hidden] {
-  display: none;
 }
 
 @media (max-width: 760px) {
   .ranking-page {
-    --ranking-avatar-size: 64px;
     background-position: center, 50% 20px, center;
     background-size: auto, auto clamp(740px, 132vw, 1050px), auto;
   }
@@ -176,7 +155,4 @@
     line-height: 1.25;
   }
 
-  .ranking-table tbody th {
-    width: auto;
-  }
 }

@@ -1,13 +1,11 @@
 .team-page {
   --team-banner-height: clamp(150px, 23vw, 320px);
   padding-block: clamp(20px, 3vw, 40px) clamp(55px, 7vw, 85px);
-  background: linear-gradient(180deg, #1f1515, #231315 36%, #14151d 61%, #101e29 86%, #10191e);
+  background: linear-gradient(160deg, #101d38, #192c4a 42%, #080f22);
   animation: none;
 }
 
 .team-banner {
-  position: relative;
-  z-index: 1;
   width: 100%;
   height: var(--team-banner-height);
   object-fit: cover;
@@ -26,45 +24,7 @@
 }
 
 .team-composition {
-  --team-banner-overlap: clamp(24px, 4vw, 58px);
-  position: relative;
-  isolation: isolate;
-  padding-block: clamp(90px, 10vw, 148px);
-}
-
-.team-artwork {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  inset-block-start: calc(-1 * var(--team-banner-overlap));
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.team-art {
-  position: absolute;
-  width: var(--team-art-size);
-  max-width: none;
-  height: auto;
-  filter: drop-shadow(0 0 28px var(--team-art-glow));
-}
-
-.team-art--fire {
-  --team-art-size: min(58%, 720px);
-  --team-art-x: 0%;
-  --team-art-y: 0%;
-  --team-art-glow: #b8452452;
-  inset-inline-start: var(--team-art-x);
-  inset-block-start: var(--team-art-y);
-}
-
-.team-art--ice {
-  --team-art-size: min(56%, 695px);
-  --team-art-x: 0%;
-  --team-art-y: 0%;
-  --team-art-glow: #377d9952;
-  inset-inline-end: var(--team-art-x);
-  inset-block-end: var(--team-art-y);
+  padding-block-start: clamp(28px, 5vw, 64px);
 }
 
 .team-profiles {
@@ -124,27 +84,7 @@
   line-height: 1.5;
 }
 
-.team-page .callout {
-  margin-top: clamp(40px, 6vw, 80px);
-}
-
-.team-page .callout h2 {
-  font-size: 1.6rem;
-}
-
 @media (max-width: 760px) {
-  .team-composition {
-    padding-block: clamp(135px, 29vw, 205px) clamp(145px, 32vw, 225px);
-  }
-
-  .team-art--fire {
-    --team-art-size: min(96%, 470px);
-  }
-
-  .team-art--ice {
-    --team-art-size: min(96%, 460px);
-  }
-
   .team-profiles {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;

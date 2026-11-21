@@ -4,9 +4,9 @@
   --rank-light: #effaff;
   --rank-gold: #8aeee9;
   --rank-line: #6ac3f653;
-  --events-art-width: min(86vw, 960px);
-  --events-art-x: 56%;
-  --events-art-y: 20px;
+  --events-art-width: min(102vw, 1479px);
+  --events-art-x: 57%;
+  --events-art-y: -32px;
   --events-table-header: #091a2db8;
   --events-table-row: #07162482;
   position: relative;
@@ -107,8 +107,8 @@
 
 @media (max-width: 760px) {
   .events-page {
-    --events-art-width: min(100vw, 650px);
-    --events-art-x: 50%;
-    --events-art-y: 115px;
+    --events-art-width: min(119vw, 807.5px);
+    --events-art-x: 56%;
+    --events-art-y: 95px;
   }
 }

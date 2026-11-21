@@ -1,9 +1,9 @@
 const teamMembers = [
-  { name: 'Emilian Vama', role: 'Frontman, CEO and Head Judge', portrait: 'emilian.webp' },
-  { name: 'Mirko Bagnarol', role: 'Commentator and Tech guy', portrait: 'mirko.webp' },
-  { name: 'Leonardo Valvassori', role: 'Streaming setup and commentator', portrait: 'leo.webp' },
+  { name: 'Emilian Vama', role: 'Frontman and Head Judge', portrait: 'emilian.webp' },
+  { name: 'Mirko Bagnarol', role: 'Broadcasting team', portrait: 'mirko.webp' },
+  { name: 'Leonardo Valvassori', role: 'Broadcasting team', portrait: 'leo.webp' },
   { name: 'Valerio Costamante', role: 'Social Media manager', portrait: 'vale.webp' },
-  { name: "Massimo dell'Ernia", role: 'Jolly', portrait: 'max.webp' }
+  { name: "Massimo dell'Ernia", role: 'Advisor', portrait: 'max.webp' }
 ];
 
 const profileGrid = document.querySelector('.team-profiles');
